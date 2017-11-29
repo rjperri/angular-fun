@@ -21,10 +21,12 @@ module.exports = function(config) {
       './app/services/users/users.js',                                  // our Users factory
       './app/services/pokemon/pokemon.js',                              // our Pokemon factory
       './app/components/users/users.js',                                // Our users Controller
+      './app/components/profile/profile.js',  
       './app/app.js',                                                   // our angular app
       './app/services/users/users.spec.js',                             // our test file for our Users factory
       './app/components/users/users.spec.js',                           // out test file for users controller
-      './app/services/pokemon/pokemon.spec.js'                          // our test file for Pokemon Factory
+      './app/services/pokemon/pokemon.spec.js',                         // our test file for Pokemon Factory
+      './app/components/profile/profile.spec.js'  
     ],
 
 
