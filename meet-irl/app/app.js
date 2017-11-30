@@ -4,7 +4,10 @@
     angular.module('meetIrl', [
             'ui.router',
             'api.users',
-            'components.users'
+            'api.pokemon',
+            'components.users',
+            'components.profile',
+            'components.missingno'
         ])
         .config(function ($urlRouterProvider) {
             $urlRouterProvider.otherwise("/users");

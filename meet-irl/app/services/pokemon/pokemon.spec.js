@@ -1,13 +1,13 @@
 describe('Pokemon factory', function() {
     var Pokemon, $q, $httpBackend;
 
-    var API = 'http://pokeapi.co/api/v2/pokemon/';
+    var API = 'https://pokeapi.co/api/v2/pokemon/';
 
     var RESPONSE_SUCCESS = {
         'id': 25,
         'name': 'pikachu',
         'sprites': {
-            'front_default': 'http://pokeapi.co/media/sprites/pokemon/25.png'    
+            'front_default': 'https://pokeapi.co/media/sprites/pokemon/25.png'    
         },
         'types': [
             {'type': { 'name': 'electric' }}
@@ -72,7 +72,7 @@ describe('Pokemon factory', function() {
             var search = 'godzilla';
 
             //setup mocks
-            $httpBackend.whenGET(API + search).respond(404, $q.reject(RESPONSE_ERROR));
+            $httpBackend.whenGET(API + search).respond(404, Common.silenceUncaughtInPromise($q.reject(RESPONSE_ERROR)));
 
             expect(Pokemon.findByName).not.toHaveBeenCalled();
             expect(result).toEqual({});

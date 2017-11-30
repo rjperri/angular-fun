@@ -3,7 +3,7 @@
     
     angular.module('api.pokemon', [])
     .factory('Pokemon', function($http) {
-        var API = 'http://pokeapi.co/api/v2/pokemon/';
+        var API = 'https://pokeapi.co/api/v2/pokemon/';
         var Pokemon = {};
 
         Pokemon.findByName = function(name) {
@@ -17,8 +17,5 @@
         };
 
         return Pokemon;
-    })
-    .config(['$qProvider', function($qProvider) {
-        $qProvider.errorOnUnhandledRejections(false);
-    }]);
+    });
 })();
