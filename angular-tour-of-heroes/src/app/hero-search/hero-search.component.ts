@@ -1,11 +1,11 @@
-import { Component, OnInit }    from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { Hero }         from '../hero';
-import { HeroService }  from '../hero.service';
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
 
-import { Observable }   from 'rxjs/Observable';
-import { Subject }      from 'rxjs/Subject';
-import { of }           from 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { of } from 'rxjs/observable/of';
 import {
     debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
@@ -35,7 +35,7 @@ export class HeroSearchComponent implements OnInit {
 
             // switch to new search observable each time the term changes
             switchMap((term: string) => this.herorService.searchHeroes(term))
-        )
+        );
     }
 
     // Push a search term into the observable stream.

@@ -1,12 +1,12 @@
-import { Injectable }               from '@angular/core';
-import { HttpClient, HttpHeaders }  from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Hero }             from './hero';
-import { MessageService }   from './message.service';
+import { Hero } from './hero';
+import { MessageService } from './message.service';
 
-import { Observable }               from 'rxjs/Observable';
-import { of }                       from 'rxjs/observable/of';
-import { catchError, map, tap }     from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -56,6 +56,7 @@ export class HeroService {
         return this.http
             .post<Hero>(this.heroesUrl, hero, httpOptions)
             .pipe(
+                // tslint:disable-next-line:no-shadowed-variable
                 tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
                 catchError(this.handleError<Hero>('addHero'))
             );
@@ -103,7 +104,7 @@ export class HeroService {
 
             // Let the app keep running by returning an empty result.
             return of(result as T);
-        }
+        };
     }
 
     /** Log a HeroService message with the MessageService */
